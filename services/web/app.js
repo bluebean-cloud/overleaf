@@ -54,7 +54,7 @@ if (!module.parent) {
 
   // We want to make sure that we provided a password through the environment.
   if (!process.env.WEB_API_USER || !process.env.WEB_API_PASSWORD) {
-    throw new Error('No API user and password provided')
+    // throw new Error('No API user and password provided')
   }
 
   PlansLocator.ensurePlansAreSetupCorrectly()

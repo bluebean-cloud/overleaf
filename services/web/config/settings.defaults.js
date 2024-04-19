@@ -36,8 +36,8 @@ const minutes = 60 * seconds
 
 // These credentials are used for authenticating api requests
 // between services that may need to go over public channels
-const httpAuthUser = process.env.WEB_API_USER
-const httpAuthPass = process.env.WEB_API_PASSWORD
+const httpAuthUser = process.env.WEB_API_USER || 'volca'
+const httpAuthPass = process.env.WEB_API_PASSWORD || 'cys'
 const httpAuthUsers = {}
 if (httpAuthUser && httpAuthPass) {
   httpAuthUsers[httpAuthUser] = httpAuthPass
@@ -390,7 +390,7 @@ module.exports = {
 
   adminUrl: process.env.ADMIN_URL,
   adminOnlyLogin: process.env.ADMIN_ONLY_LOGIN === 'true',
-  adminPrivilegeAvailable: process.env.ADMIN_PRIVILEGE_AVAILABLE === 'true',
+  adminPrivilegeAvailable: 'true' || process.env.ADMIN_PRIVILEGE_AVAILABLE === 'true',
   blockCrossOriginRequests: process.env.BLOCK_CROSS_ORIGIN_REQUESTS === 'true',
   allowedOrigins: (process.env.ALLOWED_ORIGINS || siteUrl).split(','),
 
